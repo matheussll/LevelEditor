@@ -11,6 +11,7 @@ import SpriteKit
 
 class OptionsView: NSViewController {
 
+    @IBOutlet weak var levelName: NSTextField!
     @IBOutlet weak var itemSelector: NSComboBox!
     @IBOutlet weak var sliderAmount: NSTextField!
     @IBOutlet weak var sliderSize: NSTextField!
@@ -91,8 +92,9 @@ class OptionsView: NSViewController {
 //        cena.createHorizontal()
 //    }
     @IBAction func readJson(sender: NSButton) {
-        println("djisadjasdas")
-        cena.readJson()
+        if levelName.stringValue != "" {
+            cena.readJson(levelName.stringValue)
+        }
     }
     @IBAction func deleteObj(sender: NSButton) {
         cena.deleteObject()

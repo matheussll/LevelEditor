@@ -220,7 +220,7 @@ class GameScene: SKScene {
 
         
     }
-    func readJson() {
+    func readJson(levelName: String) {
         var test = self.view!.bounds.size
         var array = [] as NSMutableArray
         for (i, obj) in enumerate(self.children){
@@ -245,10 +245,11 @@ class GameScene: SKScene {
         }
         
         println (receivedObjects)
+        let lName = levelName + ".txt"
         
         if let encryptedData:NSData = json.rawData() {
             let documentsUrl =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first as! NSURL
-            let path = documentsUrl.path!.stringByAppendingPathComponent("level test2.txt")
+            let path = documentsUrl.path!.stringByAppendingPathComponent(lName)
             encryptedData.writeToFile(path, atomically: true)
             if  let text2 = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil){
                 println(text2)
