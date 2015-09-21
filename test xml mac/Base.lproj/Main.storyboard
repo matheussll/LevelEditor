@@ -653,10 +653,10 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="249" height="567"/>
+                        <rect key="contentRect" x="196" y="240" width="249" height="262"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="249" height="567"/>
-                        <value key="maxSize" type="size" width="249" height="567"/>
+                        <value key="minSize" type="size" width="249" height="262"/>
+                        <value key="maxSize" type="size" width="249" height="262"/>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
@@ -704,21 +704,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="OptionsView" customModule="test_xml_mac" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="251" height="567"/>
+                        <rect key="frame" x="0.0" y="0.0" width="251" height="262"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3If-6k-0Cs">
-                                <rect key="frame" x="66" y="13" width="117" height="32"/>
-                                <buttonCell key="cell" type="push" title="Export Level" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="c3U-BQ-6Dg">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="readJson:" target="XfG-lQ-9wD" id="Jsx-EZ-CRT"/>
-                                </connections>
-                            </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zB3-C6-ozy">
-                                <rect key="frame" x="5" y="459" width="78" height="32"/>
+                                <rect key="frame" x="5" y="154" width="78" height="32"/>
                                 <buttonCell key="cell" type="push" title="Robot" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="BZ3-7J-U3y">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -728,22 +718,15 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBa-cD-WDL">
-                                <rect key="frame" x="76" y="530" width="97" height="17"/>
+                                <rect key="frame" x="76" y="225" width="97" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Create Objects" id="aaH-rg-x6N">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y4f-wa-AAG">
-                                <rect key="frame" x="19" y="250" width="214" height="20"/>
-                                <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="100" tickMarkPosition="above" sliderType="linear" id="7lR-hb-0L2"/>
-                                <connections>
-                                    <action selector="changeSize:" target="XfG-lQ-9wD" id="LfR-PI-mGu"/>
-                                </connections>
-                            </slider>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="itx-4c-NVl">
-                                <rect key="frame" x="83" y="426" width="82" height="32"/>
+                                <rect key="frame" x="83" y="121" width="82" height="32"/>
                                 <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dXz-z6-u96">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -753,7 +736,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OhQ-i4-YRp">
-                                <rect key="frame" x="83" y="459" width="83" height="32"/>
+                                <rect key="frame" x="83" y="154" width="83" height="32"/>
                                 <buttonCell key="cell" type="push" title="Star" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VyX-bc-J9Z">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -762,16 +745,8 @@
                                     <action selector="createStar:" target="XfG-lQ-9wD" id="Hhs-Dg-eaE"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qsl-71-EYd">
-                                <rect key="frame" x="81" y="227" width="86" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="nB2-5Q-TYq">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfM-n2-0Hx">
-                                <rect key="frame" x="11" y="498" width="233" height="26"/>
+                                <rect key="frame" x="11" y="193" width="233" height="26"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select Wall" drawsBackground="YES" completes="NO" numberOfVisibleItems="11" id="0mU-0p-ahD">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -784,7 +759,7 @@
                                 </comboBoxCell>
                             </comboBox>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wf3-0e-wh7">
-                                <rect key="frame" x="166" y="459" width="81" height="32"/>
+                                <rect key="frame" x="166" y="154" width="81" height="32"/>
                                 <buttonCell key="cell" type="push" title="Wall" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wux-SH-zmM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -793,28 +768,29 @@
                                     <action selector="createWall:" target="XfG-lQ-9wD" id="RYM-Uv-bJV"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O9V-zB-1tK">
-                                <rect key="frame" x="76" y="276" width="97" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Resize Objects" id="2bs-e7-QGr">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NBR-1y-44X">
-                                <rect key="frame" x="29" y="49" width="194" height="22"/>
+                                <rect key="frame" x="27" y="84" width="194" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Enter level name" drawsBackground="YES" id="17x-Cu-XA5">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3If-6k-0Cs">
+                                <rect key="frame" x="66" y="48" width="117" height="32"/>
+                                <buttonCell key="cell" type="push" title="Export Level" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="c3U-BQ-6Dg">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="readJson:" target="XfG-lQ-9wD" id="Jsx-EZ-CRT"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="itemSelector" destination="zfM-n2-0Hx" id="IxS-Z5-0nd"/>
                         <outlet property="levelName" destination="NBR-1y-44X" id="tBo-dQ-HxS"/>
-                        <outlet property="sliderSize" destination="Qsl-71-EYd" id="nqf-sp-Qb9"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

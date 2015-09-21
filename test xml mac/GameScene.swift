@@ -43,8 +43,8 @@ class GameScene: SKScene {
         sprite.setScale(1)
         sprite.name = "robot"
         sprite.rot = 0.0
-        sprite.scal = 1.0
-
+        sprite.scal = 0.5
+        sprite.setScale(0.5)
         sprite.stat = false
         self.addChild(sprite)
     }
@@ -69,8 +69,9 @@ class GameScene: SKScene {
         sprite.name = "wall"
         sprite.image = image
         sprite.rot = 0.0
+        sprite.setScale(0.5)
         sprite.stat = true
-        sprite.scal = 1.0
+        sprite.scal = 0.5
         self.addChild(sprite)
     }
 //    func createHorizontal() {
@@ -92,7 +93,9 @@ class GameScene: SKScene {
         sprite.name = "star"
         sprite.rot = 0.0
         sprite.stat = false
-        sprite.scal = 1.0
+        sprite.scal = 0.5
+        sprite.setScale(0.5)
+
 
         self.addChild(sprite)
         
