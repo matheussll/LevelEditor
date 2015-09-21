@@ -14,7 +14,7 @@ class GameScene: SKScene {
 
     override func didMoveToView(view: SKView) {
         self.backgroundColor = SKColor.whiteColor()
-        var bgImage = CustomSprite(imageNamed: "fundo.png")
+        let bgImage = CustomSprite(imageNamed: "fundo.png")
         bgImage.name = "bg"
         bgImage.size = self.scene!.size
         bgImage.position = CGPointMake(self.size.width/2, self.size.height/2)
@@ -113,10 +113,9 @@ class GameScene: SKScene {
     
     override func mouseDown(theEvent: NSEvent) {
         selectedNode = self.nodeAtPoint(theEvent.locationInNode(self))
-        for (i, obj) in enumerate(self.children){
-            var node = obj as! SKNode
+        for (_, obj) in self.children.enumerate() {
+            let node = obj 
             node.alpha = 1.0
-            
         }
         if self.nodeAtPoint(theEvent.locationInNode(self)) != self {
             let c = self.nodeAtPoint(theEvent.locationInNode(self)) as! CustomSprite
@@ -131,7 +130,7 @@ class GameScene: SKScene {
         for child in self.children {
             if child is CustomSprite {
                 if child.name != "bg" {
-                    if child as! SKNode == selectedNode {
+                    if child == selectedNode {
                         let c = child as! CustomSprite
                         if angle == 1.0 {
                             a = Float(M_PI)/2
@@ -184,7 +183,7 @@ class GameScene: SKScene {
         for child in self.children {
             if child is CustomSprite {
                 if child.name != "bg" {
-                    if child as! SKNode == selectedNode {
+                    if child == selectedNode {
                         let c = child as! CustomSprite
                         c.setScale(value)
                         c.scal = Float(value)
@@ -197,25 +196,25 @@ class GameScene: SKScene {
     }
     
     func returnAll() {
-        var array = [] as NSMutableArray
-        for (i, obj) in enumerate(self.children){
-            var node = obj as! CustomSprite
-            var a = [node.name!,[node.position.x.description,node.position.y.description,node.rot.description]]
+        let array = [] as NSMutableArray
+        for (_, obj) in self.children.enumerate(){
+            let node = obj as! CustomSprite
+            let a = [node.name!,[node.position.x.description,node.position.y.description,node.rot.description]]
             array.addObject(a)
         }
         let json = JSON(array)
         let str = json.description
-        let data = str.dataUsingEncoding(NSUTF8StringEncoding)!
-        println(json)
+        _ = str.dataUsingEncoding(NSUTF8StringEncoding)!
+        print(json, terminator: "")
         
 
     }
     
     func deleteObject() {
-        var a = Float()
+        _ = Float()
         for child in self.children {
             if child is CustomSprite {
-                if child as! SKNode == selectedNode {
+                if child == selectedNode {
                         child.removeFromParent()
                 }
             }
@@ -224,18 +223,18 @@ class GameScene: SKScene {
         
     }
     func readJson(levelName: String) {
-        var test = self.view!.bounds.size
-        var array = [] as NSMutableArray
-        for (i, obj) in enumerate(self.children){
-            var node = obj as! CustomSprite
+        _ = self.view!.bounds.size
+        let array = [] as NSMutableArray
+        for (_, obj) in self.children.enumerate(){
+            let node = obj as! CustomSprite
             if node.name != "bg" {
-                var a = ["class" : node.name!,"xpos" : node.position.x.description,"ypos" : node.position.y.description,"rotation" : node.rot.description, "scale": node.scal.description, "static":node.stat.description,"width":node.size.width.description,"height":node.size.height.description,"image":node.image]
+                let a = ["class" : node.name!,"xpos" : node.position.x.description,"ypos" : node.position.y.description,"rotation" : node.rot.description, "scale": node.scal.description, "static":node.stat.description,"width":node.size.width.description,"height":node.size.height.description,"image":node.image]
                 array.addObject(a)
             }
         }
         let json = JSON(array)
         
-        var receivedObjects = [] as NSMutableArray
+        let receivedObjects = [] as NSMutableArray
         for i in 0..<json.count {
             let objClass = json[i]["class"].string!
             let objX = json[i]["xpos"].string!
@@ -244,21 +243,22 @@ class GameScene: SKScene {
             let objScale = json[i]["scale"].string!
             let objStatic = json[i]["static"].string!
             let image = json[i]["image"].string!
-            var aux = ["class" : objClass, "xpos" : objX, "ypos" : objY, "rotation" : objRot, "scale": objScale, "static": objStatic, "image": image]
+            let aux = ["class" : objClass, "xpos" : objX, "ypos" : objY, "rotation" : objRot, "scale": objScale, "static": objStatic, "image": image]
             receivedObjects.addObject(aux)
         }
         
-        println (receivedObjects)
+        print (receivedObjects, terminator: "")
         let lName = levelName + ".txt"
         
-        if let encryptedData:NSData = json.rawData() {
-            let documentsUrl =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first as! NSURL
-            let path = documentsUrl.path!.stringByAppendingPathComponent(lName)
+        do {
+            let encryptedData:NSData = try json.rawData()
+            let path = NSHomeDirectory() + "/Documents/" + lName
             encryptedData.writeToFile(path, atomically: true)
-            if  let text2 = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil){
-                println(text2)
-            }
+        } catch let error {
+            
+            print(error)
         }
+        
         
     }
 }

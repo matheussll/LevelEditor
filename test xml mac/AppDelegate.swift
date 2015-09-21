@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         let storyBoard = NSStoryboard(name: "Main", bundle: nil)
-        self.secondWindow = storyBoard?.instantiateControllerWithIdentifier("GameController") as? GameViewController
+        self.secondWindow = storyBoard.instantiateControllerWithIdentifier("GameController") as? GameViewController
         
         self.secondWindow.showWindow(secondWindow)
        //  self.secondWindow.window!.setContentSize(NSSize(width: 1334, height: 750))
