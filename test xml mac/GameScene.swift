@@ -14,7 +14,7 @@ class GameScene: SKScene {
 
     override func didMoveToView(view: SKView) {
         self.backgroundColor = SKColor.whiteColor()
-        var bgImage = CustomSprite(imageNamed: "level background.png")
+        var bgImage = CustomSprite(imageNamed: "fundo.png")
         bgImage.name = "bg"
         bgImage.size = self.scene!.size
         bgImage.position = CGPointMake(self.size.width/2, self.size.height/2)
@@ -38,7 +38,7 @@ class GameScene: SKScene {
 //                self.addChild(sprite)
 //    }
     func createRobot() {
-        let sprite = CustomSprite(imageNamed:"personagem.png")
+        let sprite = CustomSprite(imageNamed:"heroi.png")
         Util.positionateSprite(sprite, toFitPosition: .DownCenter, withMaxSize: self.view!.bounds.size, YAxisOffset: 0, XAxisOffset: 0)
         sprite.setScale(1)
         sprite.name = "robot"
@@ -86,7 +86,7 @@ class GameScene: SKScene {
 //    }
     
     func createStar() {
-        let sprite = CustomSprite(imageNamed:"Star.png")
+        let sprite = CustomSprite(imageNamed:"geladeira.png")
         Util.positionateSprite(sprite, toFitPosition: .UpCenter, withMaxSize: self.view!.bounds.size, YAxisOffset: 0, XAxisOffset: 0)
         sprite.setScale(1)
         sprite.name = "star"
@@ -240,7 +240,8 @@ class GameScene: SKScene {
             let objRot = json[i]["rotation"].string!
             let objScale = json[i]["scale"].string!
             let objStatic = json[i]["static"].string!
-            var aux = ["class" : objClass, "xpos" : objX, "ypos" : objY, "rotation" : objRot, "scale": objScale, "static": objStatic]
+            let image = json[i]["image"].string!
+            var aux = ["class" : objClass, "xpos" : objX, "ypos" : objY, "rotation" : objRot, "scale": objScale, "static": objStatic, "image": image]
             receivedObjects.addObject(aux)
         }
         

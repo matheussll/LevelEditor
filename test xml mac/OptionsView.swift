@@ -26,9 +26,7 @@ class OptionsView: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var items = ["Amarelo","Azul","Bigode","Brabo","Lua","Nerd","Operario","Patricinha", "Triangulo", "Vampiro", "Verde"]
-        sliderAmount.stringValue = "2pi or 0"
-        sliderSize.stringValue = "100 %"
+        var items = ["Amarelo","Azul","Bigode","Laranja","Marrom","Roxo","Verde","Vermelho"]
         itemSelector.removeAllItems()
         itemSelector.addItemsWithObjectValues(items)
                // Do view setup here.
@@ -43,27 +41,21 @@ class OptionsView: NSViewController {
         let index = itemSelector.indexOfSelectedItem
         
         switch (index) {
-            case 0: cena.createWall("amarelo")
+            case 0: cena.createWall("amarelo.png")
                 break
-            case 1: cena.createWall("azul")
+            case 1: cena.createWall("azul.png")
                 break
-            case 2: cena.createWall("bigode")
+            case 2: cena.createWall("bigodudo.png")
                 break
-            case 3: cena.createWall("brabo")
+            case 3: cena.createWall("laranja.png")
                 break
-            case 4: cena.createWall("lua")
+            case 4: cena.createWall("marrom.png")
                 break
-            case 5: cena.createWall("nerd")
+            case 5: cena.createWall("roxo.png")
                 break
-            case 6: cena.createWall("operario")
+            case 6: cena.createWall("verde.png")
                 break
-            case 7: cena.createWall("patricinha")
-                break
-            case 8: cena.createWall("triangulo")
-                break
-            case 9: cena.createWall("vampiro")
-                break
-            case 10: cena.createWall("verde")
+            case 7: cena.createWall("vermelho.png")
                 break
             default: break
 
@@ -102,24 +94,24 @@ class OptionsView: NSViewController {
     @IBAction func createStar(sender: NSButton) {
         cena.createStar()
     }
-    @IBAction func sliderChanged(sender: NSSlider) {
-        var amount = sender.stringValue as NSString
-        self.rotation = amount.floatValue
-        if self.rotation == 1.0 {
-            sliderAmount.stringValue = "pi/2"
-        }
-        else if self.rotation == 2.0 {
-            sliderAmount.stringValue = "pi"
-        }
-        else if self.rotation == 3.0 {
-            sliderAmount.stringValue = "3pi/2"
-        }
-        else {
-            sliderAmount.stringValue = "2pi or 0"
-        }
-
-        cena.rotateRobot(CGFloat(rotation))
-    }
+//    @IBAction func sliderChanged(sender: NSSlider) {
+//        var amount = sender.stringValue as NSString
+//        self.rotation = amount.floatValue
+//        if self.rotation == 1.0 {
+//            sliderAmount.stringValue = "pi/2"
+//        }
+//        else if self.rotation == 2.0 {
+//            sliderAmount.stringValue = "pi"
+//        }
+//        else if self.rotation == 3.0 {
+//            sliderAmount.stringValue = "3pi/2"
+//        }
+//        else {
+//            sliderAmount.stringValue = "2pi or 0"
+//        }
+//
+//        cena.rotateRobot(CGFloat(rotation))
+//    }
     
     @IBAction func changeSize(sender: NSSlider) {
         var amount = sender.stringValue as NSString

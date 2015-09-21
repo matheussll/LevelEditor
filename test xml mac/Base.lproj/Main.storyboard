@@ -704,7 +704,7 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="OptionsView" customModule="test_xml_mac" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="249" height="567"/>
+                        <rect key="frame" x="0.0" y="0.0" width="251" height="567"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3If-6k-0Cs">
@@ -727,32 +727,9 @@
                                     <action selector="createRobot:" target="XfG-lQ-9wD" id="vQm-dw-KG8"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="idm-WZ-BEM">
-                                <rect key="frame" x="76" y="333" width="97" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="K9Y-61-jFc">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G36-ka-rmu">
-                                <rect key="frame" x="36" y="356" width="177" height="25"/>
-                                <sliderCell key="cell" state="on" alignment="left" maxValue="3" tickMarkPosition="above" numberOfTickMarks="4" allowsTickMarkValuesOnly="YES" sliderType="linear" id="EHH-Iw-uMZ"/>
-                                <connections>
-                                    <action selector="sliderChanged:" target="XfG-lQ-9wD" id="zt3-MJ-qXX"/>
-                                </connections>
-                            </slider>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBa-cD-WDL">
                                 <rect key="frame" x="76" y="530" width="97" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Create Objects" id="aaH-rg-x6N">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8ye-rH-ZqN">
-                                <rect key="frame" x="76" y="389" width="97" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Rotate Objects" id="MEV-X3-QuQ">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -837,13 +814,12 @@
                     <connections>
                         <outlet property="itemSelector" destination="zfM-n2-0Hx" id="IxS-Z5-0nd"/>
                         <outlet property="levelName" destination="NBR-1y-44X" id="tBo-dQ-HxS"/>
-                        <outlet property="sliderAmount" destination="idm-WZ-BEM" id="j6k-mE-Phk"/>
                         <outlet property="sliderSize" destination="Qsl-71-EYd" id="nqf-sp-Qb9"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92.5" y="962.5"/>
+            <point key="canvasLocation" x="93.5" y="962.5"/>
         </scene>
     </scenes>
 </document>
