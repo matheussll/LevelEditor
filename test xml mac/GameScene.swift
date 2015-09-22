@@ -116,7 +116,6 @@ class GameScene: SKScene {
         for (i, obj) in self.children.enumerate(){
             let node = obj 
             node.alpha = 1.0
-            
         }
         if self.nodeAtPoint(theEvent.locationInNode(self)) != self {
             let c = self.nodeAtPoint(theEvent.locationInNode(self)) as! CustomSprite
@@ -212,7 +211,7 @@ class GameScene: SKScene {
     }
     
     func deleteObject() {
-        var a = Float()
+        _ = Float()
         for child in self.children {
             if child is CustomSprite {
                 if child == selectedNode {
@@ -229,13 +228,13 @@ class GameScene: SKScene {
         for (i, obj) in self.children.enumerate(){
             var node = obj as! CustomSprite
             if node.name != "bg" {
-                var a = ["class" : node.name!,"xpos" : node.position.x.description,"ypos" : node.position.y.description,"rotation" : node.rot.description, "scale": node.scal.description, "static":node.stat.description,"width":node.size.width.description,"height":node.size.height.description,"image":node.image]
+                let a = ["class" : node.name!,"xpos" : node.position.x.description,"ypos" : node.position.y.description,"rotation" : node.rot.description, "scale": node.scal.description, "static":node.stat.description,"width":node.size.width.description,"height":node.size.height.description,"image":node.image]
                 array.addObject(a)
             }
         }
         let json = JSON(array)
         
-        var receivedObjects = [] as NSMutableArray
+        let receivedObjects = [] as NSMutableArray
         for i in 0..<json.count {
             let objClass = json[i]["class"].string!
             let objX = json[i]["xpos"].string!
@@ -244,7 +243,7 @@ class GameScene: SKScene {
             let objScale = json[i]["scale"].string!
             let objStatic = json[i]["static"].string!
             let image = json[i]["image"].string!
-            var aux = ["class" : objClass, "xpos" : objX, "ypos" : objY, "rotation" : objRot, "scale": objScale, "static": objStatic, "image": image]
+            let aux = ["class" : objClass, "xpos" : objX, "ypos" : objY, "rotation" : objRot, "scale": objScale, "static": objStatic, "image": image]
             receivedObjects.addObject(aux)
         }
         
@@ -261,6 +260,7 @@ class GameScene: SKScene {
             }
         } catch _ {
         }
+        
         
     }
 }

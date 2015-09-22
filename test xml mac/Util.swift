@@ -74,7 +74,7 @@ class Util: NSObject {
 extension SKShapeNode{
     func createPhysicsBodyForSelfWithCategory(category: UInt32, contactCategory: UInt32, collisionCategory: UInt32, dynamic: Bool = false, affectedByGravity: Bool = true) {
         if let pB = self.physicsBody{
-            var newBody =  SKPhysicsBody(polygonFromPath: self.path)
+            var newBody =  SKPhysicsBody(polygonFromPath: self.path!)
             newBody.dynamic = dynamic
             newBody.categoryBitMask = category
             newBody.collisionBitMask = collisionCategory
@@ -83,7 +83,7 @@ extension SKShapeNode{
             newBody.affectedByGravity = affectedByGravity
             self.physicsBody = newBody
         }else{
-            self.physicsBody = SKPhysicsBody(polygonFromPath: self.path)
+            self.physicsBody = SKPhysicsBody(polygonFromPath: self.path!)
             if let pB = self.physicsBody {
                 pB.dynamic = dynamic
                 pB.categoryBitMask = category
@@ -101,7 +101,7 @@ extension SKSpriteNode {
             body.contactTestBitMask = contactCategory
             body.collisionBitMask = collisionCategory
         } else {
-            let body = SKPhysicsBody(texture: self.texture, size: self.size)
+            let body = SKPhysicsBody(texture: self.texture!, size: self.size)
             body.categoryBitMask = category
             body.contactTestBitMask = contactCategory
             body.collisionBitMask = collisionCategory
