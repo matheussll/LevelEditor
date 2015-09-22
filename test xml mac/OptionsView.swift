@@ -18,7 +18,7 @@ class OptionsView: NSViewController {
     var rotation: Float = 0
     var json = JSON(NSNull())
     var cena: GameScene {
-    var appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+    let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
     let secondWindow = appDelegate.secondWindow.contentViewController as! GameView
     let wind = secondWindow.view as! SKView
     return wind.scene as! GameScene
@@ -26,7 +26,7 @@ class OptionsView: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var items = ["Amarelo","Azul","Bigode","Laranja","Marrom","Roxo","Verde","Vermelho"]
+        let items = ["Amarelo","Azul","Bigode","Laranja","Marrom","Roxo","Verde","Vermelho"]
         itemSelector.removeAllItems()
         itemSelector.addItemsWithObjectValues(items)
                // Do view setup here.
@@ -114,7 +114,7 @@ class OptionsView: NSViewController {
 //    }
     
     @IBAction func changeSize(sender: NSSlider) {
-        var amount = sender.stringValue as NSString
+        let amount = sender.stringValue as NSString
         let size = amount.floatValue
         cena.resize(CGFloat(size))
         sliderSize.stringValue = amount.intValue.description as String + " %"

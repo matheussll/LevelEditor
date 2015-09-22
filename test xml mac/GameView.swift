@@ -18,12 +18,12 @@ class GameView: NSViewController {
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        var skview = self.view as! SKView
+        let skview = self.view as! SKView
         skview.showsFPS = true
         skview.showsNodeCount = true
         
-        var scene = GameScene(size:skview.bounds.size)
-        println(skview.bounds.size)
+        let scene = GameScene(size:skview.bounds.size)
+        print(skview.bounds.size)
         scene.scaleMode = .AspectFill
         skview.presentScene(scene)
     }

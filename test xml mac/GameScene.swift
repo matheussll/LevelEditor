@@ -14,7 +14,7 @@ class GameScene: SKScene {
 
     override func didMoveToView(view: SKView) {
         self.backgroundColor = SKColor.whiteColor()
-        var bgImage = CustomSprite(imageNamed: "fundo.png")
+        let bgImage = CustomSprite(imageNamed: "fundo.png")
         bgImage.name = "bg"
         bgImage.size = self.scene!.size
         bgImage.position = CGPointMake(self.size.width/2, self.size.height/2)
@@ -113,8 +113,8 @@ class GameScene: SKScene {
     
     override func mouseDown(theEvent: NSEvent) {
         selectedNode = self.nodeAtPoint(theEvent.locationInNode(self))
-        for (i, obj) in enumerate(self.children){
-            var node = obj as! SKNode
+        for (i, obj) in self.children.enumerate(){
+            let node = obj 
             node.alpha = 1.0
             
         }
@@ -131,7 +131,7 @@ class GameScene: SKScene {
         for child in self.children {
             if child is CustomSprite {
                 if child.name != "bg" {
-                    if child as! SKNode == selectedNode {
+                    if child == selectedNode {
                         let c = child as! CustomSprite
                         if angle == 1.0 {
                             a = Float(M_PI)/2
@@ -184,7 +184,7 @@ class GameScene: SKScene {
         for child in self.children {
             if child is CustomSprite {
                 if child.name != "bg" {
-                    if child as! SKNode == selectedNode {
+                    if child == selectedNode {
                         let c = child as! CustomSprite
                         c.setScale(value)
                         c.scal = Float(value)
@@ -197,16 +197,16 @@ class GameScene: SKScene {
     }
     
     func returnAll() {
-        var array = [] as NSMutableArray
-        for (i, obj) in enumerate(self.children){
-            var node = obj as! CustomSprite
-            var a = [node.name!,[node.position.x.description,node.position.y.description,node.rot.description]]
+        let array = [] as NSMutableArray
+        for (i, obj) in self.children.enumerate(){
+            let node = obj as! CustomSprite
+            let a = [node.name!,[node.position.x.description,node.position.y.description,node.rot.description]]
             array.addObject(a)
         }
         let json = JSON(array)
         let str = json.description
         let data = str.dataUsingEncoding(NSUTF8StringEncoding)!
-        println(json)
+        print(json)
         
 
     }
@@ -215,7 +215,7 @@ class GameScene: SKScene {
         var a = Float()
         for child in self.children {
             if child is CustomSprite {
-                if child as! SKNode == selectedNode {
+                if child == selectedNode {
                         child.removeFromParent()
                 }
             }
@@ -226,7 +226,7 @@ class GameScene: SKScene {
     func readJson(levelName: String) {
         var test = self.view!.bounds.size
         var array = [] as NSMutableArray
-        for (i, obj) in enumerate(self.children){
+        for (i, obj) in self.children.enumerate(){
             var node = obj as! CustomSprite
             if node.name != "bg" {
                 var a = ["class" : node.name!,"xpos" : node.position.x.description,"ypos" : node.position.y.description,"rotation" : node.rot.description, "scale": node.scal.description, "static":node.stat.description,"width":node.size.width.description,"height":node.size.height.description,"image":node.image]
@@ -248,16 +248,18 @@ class GameScene: SKScene {
             receivedObjects.addObject(aux)
         }
         
-        println (receivedObjects)
+        print (receivedObjects)
         let lName = levelName + ".txt"
         
-        if let encryptedData:NSData = json.rawData() {
+        do {
+            let encryptedData:NSData = try json.rawData()
             let documentsUrl =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first as! NSURL
             let path = documentsUrl.path!.stringByAppendingPathComponent(lName)
             encryptedData.writeToFile(path, atomically: true)
-            if  let text2 = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil){
-                println(text2)
+            if  let text2 = try? String(contentsOfFile: path, encoding: NSUTF8StringEncoding){
+                print(text2)
             }
+        } catch _ {
         }
         
     }
