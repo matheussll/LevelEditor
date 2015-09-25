@@ -21,22 +21,6 @@ class GameScene: SKScene {
         self.addChild(bgImage)
     }
     
-    
-    
-//    override func mouseDown(theEvent: NSEvent) {
-//        /* Called when a mouse click occurs */
-//        
-//        let location = theEvent.locationInNode(self)
-//
-//                let sprite = SKSpriteNode(imageNamed:"Spaceship")
-//                sprite.position = location;
-//                sprite.setScale(0.5)
-//                
-//                let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-//                sprite.runAction(SKAction.repeatActionForever(action))
-//                
-//                self.addChild(sprite)
-//    }
     func createRobot() {
         let sprite = CustomSprite(imageNamed:"heroi.png")
         Util.positionateSprite(sprite, toFitPosition: .DownCenter, withMaxSize: self.view!.bounds.size, YAxisOffset: 0, XAxisOffset: 0)
@@ -48,20 +32,31 @@ class GameScene: SKScene {
         sprite.stat = false
         self.addChild(sprite)
     }
+
+    func createRobotFromTxt(x: NSString, y: NSString) {
+        let sprite = CustomSprite(imageNamed:"heroi.png")
+        sprite.position.x = CGFloat(x.floatValue)
+        sprite.position.y = CGFloat(y.floatValue)
+        sprite.name = "robot"
+        sprite.rot = 0.0
+        sprite.scal = 0.5
+        sprite.setScale(0.5)
+        sprite.stat = false
+        self.addChild(sprite)
+    }
     
-//    func createVertical() {
-//        let sprite = CustomSprite(imageNamed:"Banana Obstacle.png")
-//        Util.positionateSprite(sprite, toFitPosition: .Middle, withMaxSize: self.view!.bounds.size, YAxisOffset: 0, XAxisOffset: 0)
-//        sprite.setScale(1)
-//        sprite.name = "vertical"
-//        sprite.rot = 0.0
-//        sprite.scal = 1.0
-//
-//        sprite.stat = false
-//
-//        self.addChild(sprite)
-//
-//    }
+    func createStarFromTxt(x: NSString, y: NSString) {
+        let sprite = CustomSprite(imageNamed:"geladeira.png")
+        sprite.position.x = CGFloat(x.floatValue)
+        sprite.position.y = CGFloat(y.floatValue)
+        sprite.name = "star"
+        sprite.rot = 0.0
+        sprite.scal = 0.5
+        sprite.setScale(0.5)
+        sprite.stat = false
+        self.addChild(sprite)
+    }
+
     func createWall(image: String) {
         let sprite = CustomSprite(imageNamed:image)
         Util.positionateSprite(sprite, toFitPosition: .UpCenter, withMaxSize: self.view!.bounds.size, YAxisOffset: 0, XAxisOffset: 0)
@@ -74,22 +69,26 @@ class GameScene: SKScene {
         sprite.scal = 0.5
         self.addChild(sprite)
     }
-//    func createHorizontal() {
-//        let sprite = CustomSprite(imageNamed:"verde.png")
-//        Util.positionateSprite(sprite, toFitPosition: .UpCenter, withMaxSize: self.view!.bounds.size, YAxisOffset: 0, XAxisOffset: 0)
-//        sprite.setScale(1)
-//        sprite.name = "horizontal"
-//        sprite.rot = 0.0
-//        sprite.stat = false
-//        sprite.scal = 1.0
-//        self.addChild(sprite)
-//        
-//    }
+    
+
+
+    func createWallFromTxt(image: String, x:NSString,y: NSString) {
+        let sprite = CustomSprite(imageNamed:image)
+        sprite.setScale(1)
+        sprite.position.x = CGFloat(x.floatValue)
+        sprite.position.y = CGFloat(y.floatValue)
+        sprite.name = "wall"
+        sprite.image = image
+        sprite.rot = 0.0
+        sprite.setScale(0.5)
+        sprite.stat = true
+        sprite.scal = 0.5
+        self.addChild(sprite)
+    }
     
     func createStar() {
         let sprite = CustomSprite(imageNamed:"geladeira.png")
         Util.positionateSprite(sprite, toFitPosition: .UpCenter, withMaxSize: self.view!.bounds.size, YAxisOffset: 0, XAxisOffset: 0)
-        sprite.setScale(1)
         sprite.name = "star"
         sprite.rot = 0.0
         sprite.stat = false
@@ -113,7 +112,7 @@ class GameScene: SKScene {
     
     override func mouseDown(theEvent: NSEvent) {
         selectedNode = self.nodeAtPoint(theEvent.locationInNode(self))
-        for (i, obj) in self.children.enumerate(){
+        for (_, obj) in self.children.enumerate(){
             let node = obj 
             node.alpha = 1.0
         }
@@ -155,29 +154,7 @@ class GameScene: SKScene {
             }
         }
     }
-//    func createStaticVertical() {
-//        let sprite = CustomSprite(imageNamed:"Banana Obstacle.png")
-//        Util.positionateSprite(sprite, toFitPosition: .Middle, withMaxSize: self.view!.bounds.size, YAxisOffset: 0, XAxisOffset: 0)
-//        sprite.setScale(1)
-//        sprite.name = "vertical"
-//        sprite.rot = 0.0
-//        sprite.stat = true
-//        sprite.scal = 1.0
-//
-//        self.addChild(sprite)
-//    }
-//    
-//    func createStaticHorizontal() {
-//        let sprite = CustomSprite(imageNamed:"verde.png")
-//        Util.positionateSprite(sprite, toFitPosition: .UpCenter, withMaxSize: self.view!.bounds.size, YAxisOffset: 0, XAxisOffset: 0)
-//        sprite.setScale(1)
-//        sprite.name = "horizontal"
-//        sprite.rot = 0.0
-//        sprite.stat = true
-//        sprite.scal = 1.0
-//
-//        self.addChild(sprite)
-//    }
+
     func resize(size: CGFloat) {
         let value = size/100
         for child in self.children {
@@ -197,14 +174,14 @@ class GameScene: SKScene {
     
     func returnAll() {
         let array = [] as NSMutableArray
-        for (i, obj) in self.children.enumerate(){
+        for (_, obj) in self.children.enumerate(){
             let node = obj as! CustomSprite
             let a = [node.name!,[node.position.x.description,node.position.y.description,node.rot.description]]
             array.addObject(a)
         }
         let json = JSON(array)
         let str = json.description
-        let data = str.dataUsingEncoding(NSUTF8StringEncoding)!
+        _ = str.dataUsingEncoding(NSUTF8StringEncoding)!
         print(json)
         
 
@@ -252,9 +229,7 @@ class GameScene: SKScene {
         
         do {
             let encryptedData:NSData = try json.rawData()
-            let documentsUrl =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first as! NSURL
-            let path = documentsUrl.path!.stringByAppendingPathComponent(lName)
-            encryptedData.writeToFile(path, atomically: true)
+            let path = NSHomeDirectory() + "/Documents/" + lName
             if  let text2 = try? String(contentsOfFile: path, encoding: NSUTF8StringEncoding){
                 print(text2)
             }
@@ -262,5 +237,37 @@ class GameScene: SKScene {
         }
         
         
+    }
+    
+    func importLevel (levelName: String) {
+        
+        for child in self.children {
+            if child.name != "bg" {
+                child.removeFromParent()
+            }
+        }
+
+        let path1 = NSHomeDirectory() + "/Documents/" + levelName + ".txt"
+        let data = NSData(contentsOfFile:path1)
+        let json = JSON(data: data!)
+        
+        for i in 0..<json.count {
+            let objClass = json[i]["class"].string!
+            let objX = json[i]["xpos"].string!
+            let objY = json[i]["ypos"].string!
+            let image = json[i]["image"].string!
+            
+            switch objClass {
+                case "robot": createRobotFromTxt(objX as NSString,y: objY as NSString)
+                break
+                case "star": createStarFromTxt(objX as NSString,y: objY as NSString)
+                break
+                default :  createWallFromTxt(image,x: objX as NSString,y: objY as NSString)
+                break
+
+            }
+
+            
+        }
     }
 }

@@ -11,6 +11,7 @@ import SpriteKit
 
 class OptionsView: NSViewController {
 
+    @IBOutlet weak var importName: NSTextField!
     @IBOutlet weak var levelName: NSTextField!
     @IBOutlet weak var itemSelector: NSComboBox!
     @IBOutlet weak var sliderAmount: NSTextField!
@@ -94,6 +95,12 @@ class OptionsView: NSViewController {
     @IBAction func createStar(sender: NSButton) {
         cena.createStar()
     }
+    @IBAction func importLevel(sender: NSButton) {
+        if importName.stringValue != "" {
+            cena.importLevel(importName.stringValue)
+        }
+    }
+
 //    @IBAction func sliderChanged(sender: NSSlider) {
 //        var amount = sender.stringValue as NSString
 //        self.rotation = amount.floatValue

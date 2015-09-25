@@ -708,7 +708,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zB3-C6-ozy">
-                                <rect key="frame" x="5" y="154" width="78" height="32"/>
+                                <rect key="frame" x="5" y="173" width="78" height="32"/>
                                 <buttonCell key="cell" type="push" title="Robot" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="BZ3-7J-U3y">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -718,7 +718,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBa-cD-WDL">
-                                <rect key="frame" x="76" y="225" width="97" height="17"/>
+                                <rect key="frame" x="77" y="235" width="97" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Create Objects" id="aaH-rg-x6N">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -726,7 +726,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="itx-4c-NVl">
-                                <rect key="frame" x="83" y="121" width="82" height="32"/>
+                                <rect key="frame" x="85" y="140" width="82" height="32"/>
                                 <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dXz-z6-u96">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -736,7 +736,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OhQ-i4-YRp">
-                                <rect key="frame" x="83" y="154" width="83" height="32"/>
+                                <rect key="frame" x="83" y="173" width="83" height="32"/>
                                 <buttonCell key="cell" type="push" title="Star" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VyX-bc-J9Z">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -746,7 +746,7 @@
                                 </connections>
                             </button>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfM-n2-0Hx">
-                                <rect key="frame" x="11" y="193" width="233" height="26"/>
+                                <rect key="frame" x="11" y="203" width="233" height="26"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select Wall" drawsBackground="YES" completes="NO" numberOfVisibleItems="11" id="0mU-0p-ahD">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -759,7 +759,7 @@
                                 </comboBoxCell>
                             </comboBox>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wf3-0e-wh7">
-                                <rect key="frame" x="166" y="154" width="81" height="32"/>
+                                <rect key="frame" x="166" y="173" width="81" height="32"/>
                                 <buttonCell key="cell" type="push" title="Wall" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wux-SH-zmM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -768,16 +768,8 @@
                                     <action selector="createWall:" target="XfG-lQ-9wD" id="RYM-Uv-bJV"/>
                                 </connections>
                             </button>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NBR-1y-44X">
-                                <rect key="frame" x="27" y="84" width="194" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Enter level name" drawsBackground="YES" id="17x-Cu-XA5">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3If-6k-0Cs">
-                                <rect key="frame" x="66" y="48" width="117" height="32"/>
+                                <rect key="frame" x="66" y="79" width="117" height="32"/>
                                 <buttonCell key="cell" type="push" title="Export Level" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="c3U-BQ-6Dg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -786,16 +778,43 @@
                                     <action selector="readJson:" target="XfG-lQ-9wD" id="Jsx-EZ-CRT"/>
                                 </connections>
                             </button>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ayh-2d-jLt">
+                                <rect key="frame" x="27" y="49" width="194" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Enter Level Name" drawsBackground="YES" id="3wY-Ml-UaQ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2Z-of-QDj">
+                                <rect key="frame" x="66" y="13" width="117" height="32"/>
+                                <buttonCell key="cell" type="push" title="Import Level" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KUS-DD-bXA">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="importLevel:" target="XfG-lQ-9wD" id="JmP-l3-Ix0"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NBR-1y-44X">
+                                <rect key="frame" x="27" y="115" width="194" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Enter Level Name" drawsBackground="YES" id="17x-Cu-XA5">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="importName" destination="ayh-2d-jLt" id="tVw-Nk-ZuG"/>
                         <outlet property="itemSelector" destination="zfM-n2-0Hx" id="IxS-Z5-0nd"/>
                         <outlet property="levelName" destination="NBR-1y-44X" id="tBo-dQ-HxS"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="93.5" y="962.5"/>
+            <point key="canvasLocation" x="93.5" y="962"/>
         </scene>
     </scenes>
 </document>
