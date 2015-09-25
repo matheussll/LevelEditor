@@ -775,7 +775,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="readJson:" target="XfG-lQ-9wD" id="Jsx-EZ-CRT"/>
+                                    <action selector="exportLevel:" target="XfG-lQ-9wD" id="ZiP-sQ-HQ6"/>
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ayh-2d-jLt">

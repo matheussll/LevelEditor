@@ -84,9 +84,10 @@ class OptionsView: NSViewController {
 //    @IBAction func createHorizontal(sender: NSButton) {
 //        cena.createHorizontal()
 //    }
-    @IBAction func readJson(sender: NSButton) {
+    @IBAction func exportLevel(sender: NSButton) {
+        print("test")
         if levelName.stringValue != "" {
-            cena.readJson(levelName.stringValue)
+            cena.exportLevel(levelName.stringValue)
         }
     }
     @IBAction func deleteObj(sender: NSButton) {

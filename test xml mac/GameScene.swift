@@ -199,11 +199,11 @@ class GameScene: SKScene {
 
         
     }
-    func readJson(levelName: String) {
-        var test = self.view!.bounds.size
-        var array = [] as NSMutableArray
-        for (i, obj) in self.children.enumerate(){
-            var node = obj as! CustomSprite
+    func exportLevel(levelName: String) {
+        _ = self.view!.bounds.size
+        let array = [] as NSMutableArray
+        for (_, obj) in self.children.enumerate(){
+            let node = obj as! CustomSprite
             if node.name != "bg" {
                 let a = ["class" : node.name!,"xpos" : node.position.x.description,"ypos" : node.position.y.description,"rotation" : node.rot.description, "scale": node.scal.description, "static":node.stat.description,"width":node.size.width.description,"height":node.size.height.description,"image":node.image]
                 array.addObject(a)
@@ -224,12 +224,12 @@ class GameScene: SKScene {
             receivedObjects.addObject(aux)
         }
         
-        print (receivedObjects)
         let lName = levelName + ".txt"
         
         do {
             let encryptedData:NSData = try json.rawData()
             let path = NSHomeDirectory() + "/Documents/" + lName
+            encryptedData.writeToFile(path, atomically: true)
             if  let text2 = try? String(contentsOfFile: path, encoding: NSUTF8StringEncoding){
                 print(text2)
             }
