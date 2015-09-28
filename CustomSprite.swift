@@ -11,7 +11,7 @@ import SpriteKit
 class CustomSprite: SKSpriteNode {
 
     var rot = Float()
-    var stat = Bool()
+    var stat = Int()
     var scal = Float()
     var image = String()
 }

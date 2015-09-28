@@ -11,6 +11,8 @@ import SpriteKit
 
 class OptionsView: NSViewController {
 
+    @IBOutlet weak var orientationSelector: NSComboBox!
+    @IBOutlet weak var staticCheck: NSButton!
     @IBOutlet weak var importName: NSTextField!
     @IBOutlet weak var levelName: NSTextField!
     @IBOutlet weak var itemSelector: NSComboBox!
@@ -28,35 +30,36 @@ class OptionsView: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let items = ["Amarelo","Azul","Bigode","Laranja","Marrom","Roxo","Verde","Vermelho"]
+        let sides = ["Baixo", "Direita", "Cima", "Esquerda"]
         itemSelector.removeAllItems()
         itemSelector.addItemsWithObjectValues(items)
-               // Do view setup here.
+        orientationSelector.removeAllItems()
+        orientationSelector.addItemsWithObjectValues(sides)
     }
     
     override var representedObject: AnyObject? {
         didSet {
-            // Update the view, if already loaded.
         }
     }
     @IBAction func createWall(sender: NSButton) {
         let index = itemSelector.indexOfSelectedItem
         
         switch (index) {
-            case 0: cena.createWall("amarelo.png")
+            case 0: cena.createWall("amarelo.png",stat: staticCheck.state)
                 break
-            case 1: cena.createWall("azul.png")
+            case 1: cena.createWall("azul.png",stat: staticCheck.state)
                 break
-            case 2: cena.createWall("bigodudo.png")
+            case 2: cena.createWall("bigodudo.png",stat: staticCheck.state)
                 break
-            case 3: cena.createWall("laranja.png")
+            case 3: cena.createWall("laranja.png",stat: staticCheck.state)
                 break
-            case 4: cena.createWall("marrom.png")
+            case 4: cena.createWall("marrom.png",stat: staticCheck.state)
                 break
-            case 5: cena.createWall("roxo.png")
+            case 5: cena.createWall("roxo.png",stat: staticCheck.state)
                 break
-            case 6: cena.createWall("verde.png")
+            case 6: cena.createWall("verde.png",stat: staticCheck.state)
                 break
-            case 7: cena.createWall("vermelho.png")
+            case 7: cena.createWall("vermelho.png",stat: staticCheck.state)
                 break
             default: break
 
@@ -66,24 +69,22 @@ class OptionsView: NSViewController {
     }
 
     @IBAction func createRobot(sender: NSButton) {
-        
-        cena.createRobot()
+        let index = orientationSelector.indexOfSelectedItem
+        switch (index) {
+            case 0: cena.createRobot(0.0)
+                    break
+            case 1: cena.createRobot(M_PI/2)
+                break
+            case 2: cena.createRobot(M_PI)
+                break
+            case 3: cena.createRobot(3*M_PI/2)
+                break
+            default: cena.createRobot(0.0)
+                break
+            
+        }
     }
-//    @IBAction func createStaticVertical(sender: NSButton) {
-//        cena.createStaticVertical()
-//    }
-//    
-//    @IBAction func createStaticHorizontal(sender: NSButton) {
-//        cena.createStaticHorizontal()
-//
-//    }
-//    @IBAction func createVertical(sender: NSButton) {
-//        cena.createVertical()
-//    }
-//    
-//    @IBAction func createHorizontal(sender: NSButton) {
-//        cena.createHorizontal()
-//    }
+
     @IBAction func exportLevel(sender: NSButton) {
         print("test")
         if levelName.stringValue != "" {
@@ -101,25 +102,6 @@ class OptionsView: NSViewController {
             cena.importLevel(importName.stringValue)
         }
     }
-
-//    @IBAction func sliderChanged(sender: NSSlider) {
-//        var amount = sender.stringValue as NSString
-//        self.rotation = amount.floatValue
-//        if self.rotation == 1.0 {
-//            sliderAmount.stringValue = "pi/2"
-//        }
-//        else if self.rotation == 2.0 {
-//            sliderAmount.stringValue = "pi"
-//        }
-//        else if self.rotation == 3.0 {
-//            sliderAmount.stringValue = "3pi/2"
-//        }
-//        else {
-//            sliderAmount.stringValue = "2pi or 0"
-//        }
-//
-//        cena.rotateRobot(CGFloat(rotation))
-//    }
     
     @IBAction func changeSize(sender: NSSlider) {
         let amount = sender.stringValue as NSString

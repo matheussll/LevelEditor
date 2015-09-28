@@ -21,27 +21,29 @@ class GameScene: SKScene {
         self.addChild(bgImage)
     }
     
-    func createRobot() {
+    func createRobot(angle: Double) {
         let sprite = CustomSprite(imageNamed:"heroi.png")
         Util.positionateSprite(sprite, toFitPosition: .DownCenter, withMaxSize: self.view!.bounds.size, YAxisOffset: 0, XAxisOffset: 0)
         sprite.setScale(1)
         sprite.name = "robot"
-        sprite.rot = 0.0
+        print(angle)
+        sprite.zRotation=CGFloat(angle)
         sprite.scal = 0.5
         sprite.setScale(0.5)
-        sprite.stat = false
+      //  sprite.stat = false
         self.addChild(sprite)
     }
 
-    func createRobotFromTxt(x: NSString, y: NSString) {
+    func createRobotFromTxt(x: NSString, y: NSString, rot: Float) {
         let sprite = CustomSprite(imageNamed:"heroi.png")
         sprite.position.x = CGFloat(x.floatValue)
         sprite.position.y = CGFloat(y.floatValue)
+        sprite.zRotation=CGFloat(rot)
         sprite.name = "robot"
-        sprite.rot = 0.0
         sprite.scal = 0.5
         sprite.setScale(0.5)
-        sprite.stat = false
+        
+     //   sprite.stat = false
         self.addChild(sprite)
     }
     
@@ -53,11 +55,11 @@ class GameScene: SKScene {
         sprite.rot = 0.0
         sprite.scal = 0.5
         sprite.setScale(0.5)
-        sprite.stat = false
+       // sprite.stat = false
         self.addChild(sprite)
     }
 
-    func createWall(image: String) {
+    func createWall(image: String,stat: Int) {
         let sprite = CustomSprite(imageNamed:image)
         Util.positionateSprite(sprite, toFitPosition: .UpCenter, withMaxSize: self.view!.bounds.size, YAxisOffset: 0, XAxisOffset: 0)
         sprite.setScale(1)
@@ -65,14 +67,14 @@ class GameScene: SKScene {
         sprite.image = image
         sprite.rot = 0.0
         sprite.setScale(0.5)
-        sprite.stat = true
+        sprite.stat = stat
         sprite.scal = 0.5
         self.addChild(sprite)
     }
     
 
 
-    func createWallFromTxt(image: String, x:NSString,y: NSString) {
+    func createWallFromTxt(image: String, x:NSString,y: NSString,stat:Int) {
         let sprite = CustomSprite(imageNamed:image)
         sprite.setScale(1)
         sprite.position.x = CGFloat(x.floatValue)
@@ -81,7 +83,7 @@ class GameScene: SKScene {
         sprite.image = image
         sprite.rot = 0.0
         sprite.setScale(0.5)
-        sprite.stat = true
+        sprite.stat = stat
         sprite.scal = 0.5
         self.addChild(sprite)
     }
@@ -91,7 +93,7 @@ class GameScene: SKScene {
         Util.positionateSprite(sprite, toFitPosition: .UpCenter, withMaxSize: self.view!.bounds.size, YAxisOffset: 0, XAxisOffset: 0)
         sprite.name = "star"
         sprite.rot = 0.0
-        sprite.stat = false
+       // sprite.stat = false
         sprite.scal = 0.5
         sprite.setScale(0.5)
 
@@ -205,7 +207,7 @@ class GameScene: SKScene {
         for (_, obj) in self.children.enumerate(){
             let node = obj as! CustomSprite
             if node.name != "bg" {
-                let a = ["class" : node.name!,"xpos" : node.position.x.description,"ypos" : node.position.y.description,"rotation" : node.rot.description, "scale": node.scal.description, "static":node.stat.description,"width":node.size.width.description,"height":node.size.height.description,"image":node.image]
+                let a = ["class" : node.name!,"xpos" : node.position.x.description,"ypos" : node.position.y.description,"rotation" : node.rot.description, "scale": node.scal.description,"width":node.size.width.description,"height":node.size.height.description,"image":node.image,"stat": node.stat.description]
                 array.addObject(a)
             }
         }
@@ -218,9 +220,9 @@ class GameScene: SKScene {
             let objY = json[i]["ypos"].string!
             let objRot = json[i]["rotation"].string!
             let objScale = json[i]["scale"].string!
-            let objStatic = json[i]["static"].string!
+            let objStatic = json[i]["stat"].string!
             let image = json[i]["image"].string!
-            let aux = ["class" : objClass, "xpos" : objX, "ypos" : objY, "rotation" : objRot, "scale": objScale, "static": objStatic, "image": image]
+            let aux = ["class" : objClass, "xpos" : objX, "ypos" : objY, "rotation" : objRot, "scale": objScale, "stat": objStatic, "image": image]
             receivedObjects.addObject(aux)
         }
         
@@ -240,34 +242,38 @@ class GameScene: SKScene {
     }
     
     func importLevel (levelName: String) {
-        
-        for child in self.children {
-            if child.name != "bg" {
-                child.removeFromParent()
-            }
-        }
-
         let path1 = NSHomeDirectory() + "/Documents/" + levelName + ".txt"
-        let data = NSData(contentsOfFile:path1)
-        let json = JSON(data: data!)
-        
-        for i in 0..<json.count {
-            let objClass = json[i]["class"].string!
-            let objX = json[i]["xpos"].string!
-            let objY = json[i]["ypos"].string!
-            let image = json[i]["image"].string!
+        if (NSFileManager.defaultManager().fileExistsAtPath(path1)) {
             
-            switch objClass {
-                case "robot": createRobotFromTxt(objX as NSString,y: objY as NSString)
-                break
-                case "star": createStarFromTxt(objX as NSString,y: objY as NSString)
-                break
-                default :  createWallFromTxt(image,x: objX as NSString,y: objY as NSString)
-                break
-
+            for child in self.children {
+                if child.name != "bg" {
+                    child.removeFromParent()
+                }
             }
 
             
+            let data = NSData(contentsOfFile:path1)
+            let json = JSON(data: data!)
+            
+            for i in 0..<json.count {
+                let objClass = json[i]["class"].string!
+                let objX = json[i]["xpos"].string!
+                let objY = json[i]["ypos"].string!
+                let image = json[i]["image"].string!
+                let stat = json[i]["stat"].string!
+                let rot = json[i]["rotation"].string!
+                switch objClass {
+                case "robot": createRobotFromTxt(objX as NSString,y: objY as NSString,rot: (rot as NSString).floatValue)
+                    break
+                    case "star": createStarFromTxt(objX as NSString,y: objY as NSString)
+                    break
+                    default :  createWallFromTxt(image,x: objX as NSString,y: objY as NSString,stat: (stat as NSString).integerValue)
+                    break
+
+                }
+
+                
+            }
         }
     }
 }
