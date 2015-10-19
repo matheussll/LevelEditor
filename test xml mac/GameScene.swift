@@ -207,7 +207,7 @@ class GameScene: SKScene {
         for (_, obj) in self.children.enumerate(){
             let node = obj as! CustomSprite
             if node.name != "bg" {
-                let a = ["class" : node.name!,"xpos" : node.position.x.description,"ypos" : node.position.y.description,"rotation" : node.rot.description, "scale": node.scal.description,"width":node.size.width.description,"height":node.size.height.description,"image":node.image,"stat": node.stat.description]
+                let a = ["class" : node.name!,"xpos" : node.position.x.description,"ypos" : node.position.y.description,"rotation" : node.rot.description, "scale": node.scal.description,"width":node.size.width.description,"height":node.size.height.description,"image":node.image,"static": node.stat.description]
                 array.addObject(a)
             }
         }
@@ -220,9 +220,9 @@ class GameScene: SKScene {
             let objY = json[i]["ypos"].string!
             let objRot = json[i]["rotation"].string!
             let objScale = json[i]["scale"].string!
-            let objStatic = json[i]["stat"].string!
+            let objStatic = json[i]["static"].string!
             let image = json[i]["image"].string!
-            let aux = ["class" : objClass, "xpos" : objX, "ypos" : objY, "rotation" : objRot, "scale": objScale, "stat": objStatic, "image": image]
+            let aux = ["class" : objClass, "xpos" : objX, "ypos" : objY, "rotation" : objRot, "scale": objScale, "static": objStatic, "image": image]
             receivedObjects.addObject(aux)
         }
         
@@ -260,7 +260,7 @@ class GameScene: SKScene {
                 let objX = json[i]["xpos"].string!
                 let objY = json[i]["ypos"].string!
                 let image = json[i]["image"].string!
-                let stat = json[i]["stat"].string!
+                let stat = json[i]["static"].string!
                 let rot = json[i]["rotation"].string!
                 switch objClass {
                 case "robot": createRobotFromTxt(objX as NSString,y: objY as NSString,rot: (rot as NSString).floatValue)
