@@ -26,6 +26,8 @@ class GameScene: SKScene {
         Util.positionateSprite(sprite, toFitPosition: .DownCenter, withMaxSize: self.view!.bounds.size, YAxisOffset: 0, XAxisOffset: 0)
         sprite.setScale(1)
         sprite.name = "robot"
+        sprite.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.height)
+        sprite.physicsBody?.affectedByGravity = false
         print(angle)
         sprite.zRotation=CGFloat(angle)
         sprite.scal = 0.5
@@ -71,6 +73,7 @@ class GameScene: SKScene {
         sprite.scal = 0.5
         self.addChild(sprite)
     }
+    
     
 
 

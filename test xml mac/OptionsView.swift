@@ -26,7 +26,10 @@ class OptionsView: NSViewController {
     let wind = secondWindow.view as! SKView
     return wind.scene as! GameScene
     }
-    
+    var cont: GameView {
+        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        return appDelegate.secondWindow.contentViewController as! GameView
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         let items = ["Amarelo","Azul","Bigode","Laranja","Marrom","Roxo","Verde","Vermelho"]
@@ -68,6 +71,9 @@ class OptionsView: NSViewController {
         
     }
 
+    @IBAction func proximitySensor(sender: NSButton) {
+        cont.toggleProximitySensor()
+    }
     @IBAction func createRobot(sender: NSButton) {
         let index = orientationSelector.indexOfSelectedItem
         switch (index) {

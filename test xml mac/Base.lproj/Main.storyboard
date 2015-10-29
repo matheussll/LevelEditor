@@ -653,10 +653,10 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="1104" y="523" width="251" height="294"/>
+                        <rect key="contentRect" x="1104" y="523" width="251" height="366"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="251" height="294"/>
-                        <value key="maxSize" type="size" width="251" height="294"/>
+                        <value key="minSize" type="size" width="251" height="366"/>
+                        <value key="maxSize" type="size" width="251" height="366"/>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
@@ -664,7 +664,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92" y="249.5"/>
+            <point key="canvasLocation" x="91.5" y="285"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="us8-Tv-lqo">
@@ -704,11 +704,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="OptionsView" customModule="test_xml_mac" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="251" height="294"/>
+                        <rect key="frame" x="0.0" y="0.0" width="251" height="366"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zB3-C6-ozy">
-                                <rect key="frame" x="5" y="161" width="78" height="32"/>
+                                <rect key="frame" x="5" y="233" width="78" height="32"/>
                                 <buttonCell key="cell" type="push" title="Robot" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="BZ3-7J-U3y">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -718,7 +718,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBa-cD-WDL">
-                                <rect key="frame" x="77" y="267" width="97" height="17"/>
+                                <rect key="frame" x="77" y="339" width="97" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Create Objects" id="aaH-rg-x6N">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -726,7 +726,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="itx-4c-NVl">
-                                <rect key="frame" x="5" y="132" width="78" height="32"/>
+                                <rect key="frame" x="5" y="204" width="78" height="32"/>
                                 <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dXz-z6-u96">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -736,7 +736,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OhQ-i4-YRp">
-                                <rect key="frame" x="85" y="161" width="83" height="32"/>
+                                <rect key="frame" x="85" y="233" width="83" height="32"/>
                                 <buttonCell key="cell" type="push" title="Star" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VyX-bc-J9Z">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -746,7 +746,7 @@
                                 </connections>
                             </button>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfM-n2-0Hx">
-                                <rect key="frame" x="11" y="197" width="233" height="26"/>
+                                <rect key="frame" x="11" y="269" width="233" height="26"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select Wall" drawsBackground="YES" completes="NO" numberOfVisibleItems="11" id="0mU-0p-ahD">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -759,7 +759,7 @@
                                 </comboBoxCell>
                             </comboBox>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wf3-0e-wh7">
-                                <rect key="frame" x="166" y="161" width="81" height="32"/>
+                                <rect key="frame" x="166" y="233" width="81" height="32"/>
                                 <buttonCell key="cell" type="push" title="Wall" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wux-SH-zmM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -769,7 +769,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3If-6k-0Cs">
-                                <rect key="frame" x="66" y="72" width="117" height="32"/>
+                                <rect key="frame" x="61" y="79" width="117" height="32"/>
                                 <buttonCell key="cell" type="push" title="Export Level" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="c3U-BQ-6Dg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -779,7 +779,7 @@
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ayh-2d-jLt">
-                                <rect key="frame" x="27" y="49" width="194" height="22"/>
+                                <rect key="frame" x="29" y="49" width="194" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Enter Level Name" drawsBackground="YES" id="3wY-Ml-UaQ">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -787,7 +787,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2Z-of-QDj">
-                                <rect key="frame" x="66" y="13" width="117" height="32"/>
+                                <rect key="frame" x="61" y="13" width="117" height="32"/>
                                 <buttonCell key="cell" type="push" title="Import Level" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KUS-DD-bXA">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -797,7 +797,7 @@
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NBR-1y-44X">
-                                <rect key="frame" x="27" y="108" width="194" height="22"/>
+                                <rect key="frame" x="29" y="115" width="194" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Enter Level Name" drawsBackground="YES" id="17x-Cu-XA5">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -805,14 +805,14 @@
                                 </textFieldCell>
                             </textField>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jgq-eb-q7a">
-                                <rect key="frame" x="89" y="140" width="93" height="18"/>
+                                <rect key="frame" x="86" y="210" width="93" height="18"/>
                                 <buttonCell key="cell" type="check" title="Can Move?" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="K5U-JA-tTd">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PCn-4g-wT2">
-                                <rect key="frame" x="29" y="225" width="197" height="26"/>
+                                <rect key="frame" x="29" y="297" width="197" height="26"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select Orientation" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="wnJ-XS-Vka">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -824,6 +824,16 @@
                                     </objectValues>
                                 </comboBoxCell>
                             </comboBox>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="taG-39-3Wo">
+                                <rect key="frame" x="33" y="159" width="184" height="32"/>
+                                <buttonCell key="cell" type="push" title="Show Proximity Sensor" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dGm-Qf-sXX">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="proximitySensor:" target="XfG-lQ-9wD" id="XvL-d3-bnN"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>

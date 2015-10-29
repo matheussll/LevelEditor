@@ -13,6 +13,7 @@ class GameView: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do view setup here.
     }
     
@@ -21,11 +22,16 @@ class GameView: NSViewController {
         let skview = self.view as! SKView
         skview.showsFPS = true
         skview.showsNodeCount = true
-        
+        skview.showsPhysics = true
         let scene = GameScene(size:skview.bounds.size)
         print(skview.bounds.size)
         scene.scaleMode = .AspectFill
         skview.presentScene(scene)
+    }
+    
+    func toggleProximitySensor() {
+        let skview = self.view as! SKView
+        skview.showsPhysics = !skview.showsPhysics
     }
     
 }
